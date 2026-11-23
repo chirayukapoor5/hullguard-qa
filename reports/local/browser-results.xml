@@ -1,0 +1,16 @@
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="11.682698">
+<testsuite name="demo.spec.js" timestamp="2026-11-23T14:09:39.796Z" hostname="" tests="6" failures="0" skipped="0" time="8.973" errors="0">
+<testcase name="generated OBJ renders and pointer/keyboard selection hydrates the manifest" classname="demo.spec.js" time="3.533">
+</testcase>
+<testcase name="revision view renders thickness, mass, and changed component identities" classname="demo.spec.js" time="1.101">
+</testcase>
+<testcase name="dashboard leads to repeatable faults and serves the exact evidence" classname="demo.spec.js" time="1.311">
+</testcase>
+<testcase name="engineering report and every revision export are served" classname="demo.spec.js" time="0.873">
+</testcase>
+<testcase name="compact viewport retains navigation and component inspection" classname="demo.spec.js" time="1.292">
+</testcase>
+<testcase name="unavailable WebGL leaves readable geometry evidence" classname="demo.spec.js" time="0.863">
+</testcase>
+</testsuite>
+</testsuites>

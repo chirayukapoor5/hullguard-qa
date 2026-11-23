@@ -1,0 +1,136 @@
+{
+  "status": "PASS",
+  "executed_utc": "2026-11-23T14:09:50+00:00",
+  "source_commit": null,
+  "source_dirty": null,
+  "platform": "Windows AMD64",
+  "tools": {
+    "python": "3.12.10",
+    "python_packages": {
+      "hullguard-qa": "1.0.0",
+      "pytest": "9.0.3",
+      "pytest-cov": "7.1.0",
+      "coverage": "7.17.4",
+      "ruff": "0.15.21",
+      "defusedxml": "0.7.1"
+    },
+    "node": "v26.13.0",
+    "npm": "11.20.0",
+    "playwright": "Version 1.65.1"
+  },
+  "stages": {
+    "python-prerequisites": {
+      "status": "PASS"
+    },
+    "frontend-prerequisites": {
+      "status": "PASS"
+    },
+    "lint": {
+      "status": "PASS",
+      "command": [
+        "python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "log": "lint.log"
+    },
+    "format": {
+      "status": "PASS",
+      "command": [
+        "python.exe",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "log": "format.log"
+    },
+    "positive-tests": {
+      "status": "PASS",
+      "command": [
+        "python.exe",
+        "-m",
+        "pytest",
+        "--cov=hullguard",
+        "--cov-report=term",
+        "-m",
+        "not fault",
+        "--junitxml=reports/positive-results.xml"
+      ],
+      "exit_code": 0,
+      "log": "positive-tests.log"
+    },
+    "controlled-fault-tests": {
+      "status": "PASS",
+      "command": [
+        "python.exe",
+        "-m",
+        "pytest",
+        "--cov=hullguard",
+        "--cov-report=term",
+        "-m",
+        "fault",
+        "--cov-append",
+        "--cov-fail-under=85",
+        "--cov-report=xml:reports/coverage.xml",
+        "--junitxml=reports/fault-results.xml"
+      ],
+      "exit_code": 0,
+      "log": "controlled-fault-tests.log"
+    },
+    "fixture-regression": {
+      "status": "PASS",
+      "command": [
+        "python.exe",
+        "-m",
+        "hullguard",
+        "demo"
+      ],
+      "exit_code": 0,
+      "log": "fixture-regression.log"
+    },
+    "frontend-build": {
+      "status": "PASS",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "log": "frontend-build.log"
+    },
+    "browser-acceptance": {
+      "status": "PASS",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e"
+      ],
+      "exit_code": 0,
+      "log": "browser-acceptance.log"
+    }
+  },
+  "python_results": {
+    "tests": 95,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  },
+  "coverage": {
+    "line_percent": 99.08,
+    "branch_percent": 96.15,
+    "combined_percent": 98.44497607655502,
+    "tool": "7.17.4"
+  },
+  "browser_results": {
+    "tests": 6,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0
+  }
+}

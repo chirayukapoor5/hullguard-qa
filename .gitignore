@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+frontend/node_modules/
+frontend/dist/
+frontend/public/data/
+frontend/test-results/
+reports/*
+!reports/local/
+reports/local/*
+!reports/local/*.xml
+!reports/local/*.json
+!reports/local/*.png
+build/

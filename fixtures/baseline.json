@@ -1,0 +1,134 @@
+{
+  "schema": 1,
+  "project": "Open structural bay",
+  "units": {
+    "length": "mm",
+    "mass": "kg",
+    "density": "kg/m3"
+  },
+  "materials": {
+    "steel-example": 7850
+  },
+  "components": [
+    {
+      "id": "P-01",
+      "kind": "bottom",
+      "material": "steel-example",
+      "origin_mm": [
+        0,
+        0,
+        -6
+      ],
+      "size_mm": [
+        2000,
+        1000,
+        6
+      ]
+    },
+    {
+      "id": "P-02",
+      "kind": "side",
+      "material": "steel-example",
+      "origin_mm": [
+        0,
+        0,
+        0
+      ],
+      "size_mm": [
+        2000,
+        6,
+        430
+      ]
+    },
+    {
+      "id": "P-03",
+      "kind": "side",
+      "material": "steel-example",
+      "origin_mm": [
+        0,
+        994,
+        0
+      ],
+      "size_mm": [
+        2000,
+        6,
+        430
+      ]
+    },
+    {
+      "id": "B-01",
+      "kind": "bulkhead",
+      "material": "steel-example",
+      "origin_mm": [
+        1100,
+        6,
+        0
+      ],
+      "size_mm": [
+        8,
+        988,
+        430
+      ]
+    },
+    {
+      "id": "S-01",
+      "kind": "stiffener",
+      "material": "steel-example",
+      "origin_mm": [
+        0,
+        272,
+        0
+      ],
+      "size_mm": [
+        1100,
+        8,
+        68
+      ]
+    },
+    {
+      "id": "S-02",
+      "kind": "stiffener",
+      "material": "steel-example",
+      "origin_mm": [
+        0,
+        720,
+        0
+      ],
+      "size_mm": [
+        1100,
+        8,
+        68
+      ]
+    },
+    {
+      "id": "S-03",
+      "kind": "stiffener",
+      "material": "steel-example",
+      "origin_mm": [
+        1108,
+        272,
+        0
+      ],
+      "size_mm": [
+        892,
+        8,
+        68
+      ]
+    },
+    {
+      "id": "S-04",
+      "kind": "stiffener",
+      "material": "steel-example",
+      "origin_mm": [
+        1108,
+        720,
+        0
+      ],
+      "size_mm": [
+        892,
+        8,
+        68
+      ]
+    }
+  ]
+}
