@@ -1,0 +1,1409 @@
+{
+  "kind": "scripted shell reproduction",
+  "python": "3.12.10",
+  "platform": "Windows",
+  "executed_utc": "2026-11-23T15:07:30+00:00",
+  "cases": [
+    {
+      "id": "M01",
+      "status": "PASS",
+      "actual": "Verification summary and both XML reports exist. Setup evidence is the clean-checkout run.",
+      "runs": [
+        {
+          "verified_commit": "381c1b03dd3869ab26b95d2e7d981109c475e52b",
+          "python": {
+            "tests": 104,
+            "errors": 0,
+            "failures": 0,
+            "skipped": 0
+          },
+          "browser": {
+            "tests": 9,
+            "errors": 0,
+            "failures": 0,
+            "skipped": 0
+          },
+          "source_dirty": false
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "status": "PASS",
+      "actual": "New project name, eight components and matching canonical revision.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M02\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "fafb95249aeebf734b76ae3d6511caa2d5fe89042e0caed4a3b9b02b2af35177",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "export",
+            "build\\manual-audit\\shell\\M02\\model.json",
+            "build\\manual-audit\\shell\\M02\\exports"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "fafb95249aeebf734b76ae3d6511caa2d5fe89042e0caed4a3b9b02b2af35177",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "status": "PASS",
+      "actual": "Saved and re-read reordered JSON. Revision and mass are unchanged.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M03\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M03\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "compare",
+            "fixtures/baseline.json",
+            "build\\manual-audit\\shell\\M03\\model.json",
+            "build\\manual-audit\\shell\\M03\\reordered"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "project": "Open structural bay",
+            "baseline_revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "revised_revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "before_mass_kg": 218.9052256,
+            "after_mass_kg": 218.9052256,
+            "delta_mass_kg": 0.0,
+            "added": [],
+            "removed": [],
+            "modified": [],
+            "affected_artifacts": [],
+            "validation": {
+              "status": "PASS",
+              "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+              "checked": [
+                "model.obj",
+                "manifest.json",
+                "bom.csv",
+                "drawing.svg"
+              ],
+              "findings": []
+            }
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "status": "PASS",
+      "actual": "Only P-01 changed. Mass 94.2 to 125.6 kg and assembly delta +31.4 kg.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "compare",
+            "fixtures/baseline.json",
+            "build\\manual-audit\\shell\\M04\\model.json",
+            "build\\manual-audit\\shell\\M04\\revised"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "project": "Open structural bay",
+            "baseline_revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "revised_revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+            "before_mass_kg": 218.9052256,
+            "after_mass_kg": 250.3052256,
+            "delta_mass_kg": 31.400000000000006,
+            "added": [],
+            "removed": [],
+            "modified": [
+              {
+                "id": "P-01",
+                "before": {
+                  "id": "P-01",
+                  "kind": "bottom",
+                  "material": "steel-example",
+                  "size_mm": [
+                    2000.0,
+                    1000.0,
+                    6.0
+                  ],
+                  "origin_mm": [
+                    0.0,
+                    0.0,
+                    -6.0
+                  ],
+                  "thickness_mm": 6.0,
+                  "mass_kg": 94.2
+                },
+                "after": {
+                  "id": "P-01",
+                  "kind": "bottom",
+                  "material": "steel-example",
+                  "size_mm": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "origin_mm": [
+                    0.0,
+                    0.0,
+                    -8.0
+                  ],
+                  "thickness_mm": 8.0,
+                  "mass_kg": 125.60000000000001
+                },
+                "delta_dimensions_mm": [
+                  0.0,
+                  0.0,
+                  2.0
+                ],
+                "delta_position_mm": [
+                  0.0,
+                  0.0,
+                  -2.0
+                ],
+                "delta_mass_kg": 31.400000000000006
+              }
+            ],
+            "affected_artifacts": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg",
+              "validation.json",
+              "report.html"
+            ],
+            "validation": {
+              "status": "PASS",
+              "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+              "checked": [
+                "model.obj",
+                "manifest.json",
+                "bom.csv",
+                "drawing.svg"
+              ],
+              "findings": []
+            }
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "status": "PASS",
+      "actual": "Zero thickness returned exit 2 with the exact dimension field.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M05\\model.json"
+          ],
+          "expected_exit": 2,
+          "actual_exit": 2,
+          "result": {
+            "status": "FAIL",
+            "revision": "",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": [
+              {
+                "code": "INPUT_DIMENSION",
+                "artifact": "model.json",
+                "component": "",
+                "expected": "valid canonical model",
+                "actual": "P-01.size_mm.Z must be at least 0.001 mm"
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "status": "PASS",
+      "actual": "0.001 mm passed. 0.0009 mm returned INPUT_DIMENSION.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M06\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "c1790c03614bf18446c920332d7bbcaa81a75a233076bb97eaa8a0d23598970c",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M06\\model.json"
+          ],
+          "expected_exit": 2,
+          "actual_exit": 2,
+          "result": {
+            "status": "FAIL",
+            "revision": "",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": [
+              {
+                "code": "INPUT_DIMENSION",
+                "artifact": "model.json",
+                "component": "",
+                "expected": "valid canonical model",
+                "actual": "P-01.size_mm.Z must be at least 0.001 mm"
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "status": "PASS",
+      "actual": "Truncated JSON returned INPUT_READ. Restoring the brace passed.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M07\\model.json"
+          ],
+          "expected_exit": 2,
+          "actual_exit": 2,
+          "result": {
+            "status": "FAIL",
+            "revision": "",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": [
+              {
+                "code": "INPUT_READ",
+                "artifact": "model.json",
+                "component": "",
+                "expected": "valid canonical model",
+                "actual": "Cannot read build\\manual-audit\\shell\\M07\\model.json: Expecting ',' delimiter: line 134 column 1 (char 1969)"
+              }
+            ]
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M07\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M08",
+      "status": "PASS",
+      "actual": "Shifted part failed placement. Restored contact passed.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M08\\model.json"
+          ],
+          "expected_exit": 2,
+          "actual_exit": 2,
+          "result": {
+            "status": "FAIL",
+            "revision": "",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": [
+              {
+                "code": "INPUT_PLACEMENT",
+                "artifact": "model.json",
+                "component": "",
+                "expected": "valid canonical model",
+                "actual": "S-01: must sit on the bottom plate within its XY footprint"
+              }
+            ]
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M08\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M09",
+      "status": "PASS",
+      "actual": "0.001 mm penetration reported B-01/S-01 overlap. Exact contact passed.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M09\\model.json"
+          ],
+          "expected_exit": 2,
+          "actual_exit": 2,
+          "result": {
+            "status": "FAIL",
+            "revision": "",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": [
+              {
+                "code": "INPUT_OVERLAP",
+                "artifact": "model.json",
+                "component": "",
+                "expected": "valid canonical model",
+                "actual": "B-01 and S-01 intersect with positive material volume"
+              }
+            ]
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "build\\manual-audit\\shell\\M09\\model.json"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M10",
+      "status": "PASS",
+      "actual": "Stale hash and P-01 mass 94.2 kg observed, 125.6 kg expected.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "validate",
+            "frontend\\public\\data\\faults\\stale_bom\\model.json",
+            "frontend\\public\\data\\faults\\stale_bom"
+          ],
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "result": {
+            "status": "FAIL",
+            "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": [
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "B-01",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "P-01",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "P-02",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "P-03",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "S-01",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "S-02",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "S-03",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "STALE_REVISION",
+                "artifact": "bom.csv",
+                "component": "S-04",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "DIMENSIONS",
+                "artifact": "bom.csv",
+                "component": "P-01",
+                "expected": [
+                  2000.0,
+                  1000.0,
+                  8.0
+                ],
+                "actual": [
+                  "2000.0",
+                  "1000.0",
+                  "6.0"
+                ]
+              },
+              {
+                "code": "THICKNESS",
+                "artifact": "bom.csv",
+                "component": "P-01",
+                "expected": 8.0,
+                "actual": "6.0"
+              },
+              {
+                "code": "VOLUME",
+                "artifact": "bom.csv",
+                "component": "P-01",
+                "expected": 0.016,
+                "actual": "0.012"
+              },
+              {
+                "code": "MASS",
+                "artifact": "bom.csv",
+                "component": "P-01",
+                "expected": 125.6,
+                "actual": "94.2"
+              },
+              {
+                "code": "ASSEMBLY_MASS",
+                "artifact": "bom.csv",
+                "component": "",
+                "expected": 250.3052256,
+                "actual": 218.9052256
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M11",
+      "status": "PASS",
+      "actual": "Drawing thickness and visible annotation mismatch. Browser check records the visible 6 mm.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "validate",
+            "frontend\\public\\data\\faults\\stale_drawing\\model.json",
+            "frontend\\public\\data\\faults\\stale_drawing"
+          ],
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "result": {
+            "status": "FAIL",
+            "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": [
+              {
+                "code": "STALE_REVISION",
+                "artifact": "drawing.svg",
+                "component": "",
+                "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+              },
+              {
+                "code": "DRAWING_DIMENSIONS",
+                "artifact": "drawing.svg",
+                "component": "P-01",
+                "expected": [
+                  2000.0,
+                  1000.0,
+                  8.0
+                ],
+                "actual": [
+                  "2000.0",
+                  "1000.0",
+                  "6.0"
+                ]
+              },
+              {
+                "code": "DRAWING_THICKNESS",
+                "artifact": "drawing.svg",
+                "component": "P-01",
+                "expected": 8.0,
+                "actual": "6.0"
+              },
+              {
+                "code": "DRAWING_ANNOTATION",
+                "artifact": "drawing.svg",
+                "component": "P-01",
+                "expected": "P-01 2000 \u00d7 1000 \u00d7 8 mm t=8 mm",
+                "actual": "P-01 2000 \u00d7 1000 \u00d7 6 mm t=6 mm"
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M12",
+      "status": "PASS",
+      "actual": "Canonical source retains S-04. The OBJ inventory omits it.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "validate",
+            "frontend\\public\\data\\faults\\missing_stiffener\\model.json",
+            "frontend\\public\\data\\faults\\missing_stiffener"
+          ],
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "result": {
+            "status": "FAIL",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": [
+              {
+                "code": "COMPONENT_INVENTORY",
+                "artifact": "model.obj",
+                "component": "",
+                "expected": [
+                  "B-01",
+                  "P-01",
+                  "P-02",
+                  "P-03",
+                  "S-01",
+                  "S-02",
+                  "S-03",
+                  "S-04"
+                ],
+                "actual": [
+                  "B-01",
+                  "P-01",
+                  "P-02",
+                  "P-03",
+                  "S-01",
+                  "S-02",
+                  "S-03"
+                ]
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M13",
+      "status": "PASS",
+      "actual": "The current-revision B-01 row is inflated 1,000\u00d7. Mass and volume checks fired.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "validate",
+            "frontend\\public\\data\\faults\\wrong_units\\model.json",
+            "frontend\\public\\data\\faults\\wrong_units"
+          ],
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "result": {
+            "status": "FAIL",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": [
+              {
+                "code": "VOLUME",
+                "artifact": "bom.csv",
+                "component": "B-01",
+                "expected": 0.00339872,
+                "actual": "3.39872"
+              },
+              {
+                "code": "MASS",
+                "artifact": "bom.csv",
+                "component": "B-01",
+                "expected": 26.679952,
+                "actual": "26679.952"
+              },
+              {
+                "code": "ASSEMBLY_MASS",
+                "artifact": "bom.csv",
+                "component": "",
+                "expected": 218.9052256,
+                "actual": 26872.177273600002
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M14",
+      "status": "PASS",
+      "actual": "Duplicate S-03 reported with exit 2.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "check",
+            "frontend/public/data/faults/duplicate_id/model.json"
+          ],
+          "expected_exit": 2,
+          "actual_exit": 2,
+          "result": {
+            "status": "FAIL",
+            "revision": "",
+            "checked": [
+              "canonical model"
+            ],
+            "findings": [
+              {
+                "code": "INPUT_DUPLICATE_ID",
+                "artifact": "model.json",
+                "component": "",
+                "expected": "valid canonical model",
+                "actual": "Duplicate component IDs: S-03"
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M23",
+      "status": "PASS",
+      "actual": "The visible note changed to 8 mm. Metadata stayed at 6 mm. Only DRAWING_ANNOTATION fired.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "export",
+            "fixtures/baseline.json",
+            "build\\manual-audit\\shell\\M23"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "validate",
+            "fixtures/baseline.json",
+            "build\\manual-audit\\shell\\M23"
+          ],
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "result": {
+            "status": "FAIL",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": [
+              {
+                "code": "DRAWING_ANNOTATION",
+                "artifact": "drawing.svg",
+                "component": "P-01",
+                "expected": "P-01 2000 \u00d7 1000 \u00d7 6 mm t=6 mm",
+                "actual": "P-01 2000 \u00d7 1000 \u00d7 6 mm t=8 mm"
+              }
+            ]
+          },
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "M24",
+      "status": "PASS",
+      "actual": "Fresh outputs PASS in both comparisons. Old candidate FAIL/1, revised candidate PASS/0.",
+      "runs": [
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "export",
+            "fixtures/baseline.json",
+            "build\\manual-audit\\shell\\M24\\old"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "status": "PASS",
+            "revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "checked": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg"
+            ],
+            "findings": []
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "compare",
+            "fixtures/baseline.json",
+            "fixtures/thickness_changed.json",
+            "build\\manual-audit\\shell\\M24\\new",
+            "--against",
+            "build\\manual-audit\\shell\\M24\\old"
+          ],
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "result": {
+            "project": "Open structural bay",
+            "baseline_revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "revised_revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+            "before_mass_kg": 218.9052256,
+            "after_mass_kg": 250.3052256,
+            "delta_mass_kg": 31.400000000000006,
+            "added": [],
+            "removed": [],
+            "modified": [
+              {
+                "id": "P-01",
+                "before": {
+                  "id": "P-01",
+                  "kind": "bottom",
+                  "material": "steel-example",
+                  "size_mm": [
+                    2000.0,
+                    1000.0,
+                    6.0
+                  ],
+                  "origin_mm": [
+                    0.0,
+                    0.0,
+                    -6.0
+                  ],
+                  "thickness_mm": 6.0,
+                  "mass_kg": 94.2
+                },
+                "after": {
+                  "id": "P-01",
+                  "kind": "bottom",
+                  "material": "steel-example",
+                  "size_mm": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "origin_mm": [
+                    0.0,
+                    0.0,
+                    -8.0
+                  ],
+                  "thickness_mm": 8.0,
+                  "mass_kg": 125.60000000000001
+                },
+                "delta_dimensions_mm": [
+                  0.0,
+                  0.0,
+                  2.0
+                ],
+                "delta_position_mm": [
+                  0.0,
+                  0.0,
+                  -2.0
+                ],
+                "delta_mass_kg": 31.400000000000006
+              }
+            ],
+            "affected_artifacts": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg",
+              "validation.json",
+              "report.html"
+            ],
+            "candidate_validation": {
+              "status": "FAIL",
+              "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+              "checked": [
+                "model.obj",
+                "manifest.json",
+                "bom.csv",
+                "drawing.svg"
+              ],
+              "findings": [
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "model.obj",
+                  "component": "",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "POSITION",
+                  "artifact": "model.obj",
+                  "component": "P-01",
+                  "expected": [
+                    0.0,
+                    0.0,
+                    -8.0
+                  ],
+                  "actual": [
+                    0.0,
+                    0.0,
+                    -6.0
+                  ]
+                },
+                {
+                  "code": "DIMENSIONS",
+                  "artifact": "model.obj",
+                  "component": "P-01",
+                  "expected": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "actual": [
+                    2000.0,
+                    1000.0,
+                    6.0
+                  ]
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "manifest.json",
+                  "component": "",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "ASSEMBLY_MASS",
+                  "artifact": "manifest.json",
+                  "component": "",
+                  "expected": 250.3052256,
+                  "actual": 218.9052256
+                },
+                {
+                  "code": "POSITION",
+                  "artifact": "manifest.json",
+                  "component": "P-01",
+                  "expected": [
+                    0.0,
+                    0.0,
+                    -8.0
+                  ],
+                  "actual": [
+                    0.0,
+                    0.0,
+                    -6.0
+                  ]
+                },
+                {
+                  "code": "DIMENSIONS",
+                  "artifact": "manifest.json",
+                  "component": "P-01",
+                  "expected": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "actual": [
+                    2000.0,
+                    1000.0,
+                    6.0
+                  ]
+                },
+                {
+                  "code": "THICKNESS",
+                  "artifact": "manifest.json",
+                  "component": "P-01",
+                  "expected": 8.0,
+                  "actual": 6.0
+                },
+                {
+                  "code": "VOLUME",
+                  "artifact": "manifest.json",
+                  "component": "P-01",
+                  "expected": 0.016,
+                  "actual": 0.012
+                },
+                {
+                  "code": "MASS",
+                  "artifact": "manifest.json",
+                  "component": "P-01",
+                  "expected": 125.6,
+                  "actual": 94.2
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "B-01",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "P-01",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "P-02",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "P-03",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "S-01",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "S-02",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "S-03",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "bom.csv",
+                  "component": "S-04",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "DIMENSIONS",
+                  "artifact": "bom.csv",
+                  "component": "P-01",
+                  "expected": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "actual": [
+                    "2000.0",
+                    "1000.0",
+                    "6.0"
+                  ]
+                },
+                {
+                  "code": "THICKNESS",
+                  "artifact": "bom.csv",
+                  "component": "P-01",
+                  "expected": 8.0,
+                  "actual": "6.0"
+                },
+                {
+                  "code": "VOLUME",
+                  "artifact": "bom.csv",
+                  "component": "P-01",
+                  "expected": 0.016,
+                  "actual": "0.012"
+                },
+                {
+                  "code": "MASS",
+                  "artifact": "bom.csv",
+                  "component": "P-01",
+                  "expected": 125.6,
+                  "actual": "94.2"
+                },
+                {
+                  "code": "ASSEMBLY_MASS",
+                  "artifact": "bom.csv",
+                  "component": "",
+                  "expected": 250.3052256,
+                  "actual": 218.9052256
+                },
+                {
+                  "code": "STALE_REVISION",
+                  "artifact": "drawing.svg",
+                  "component": "",
+                  "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+                  "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+                },
+                {
+                  "code": "DRAWING_DIMENSIONS",
+                  "artifact": "drawing.svg",
+                  "component": "P-01",
+                  "expected": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "actual": [
+                    "2000.0",
+                    "1000.0",
+                    "6.0"
+                  ]
+                },
+                {
+                  "code": "DRAWING_THICKNESS",
+                  "artifact": "drawing.svg",
+                  "component": "P-01",
+                  "expected": 8.0,
+                  "actual": "6.0"
+                },
+                {
+                  "code": "DRAWING_ANNOTATION",
+                  "artifact": "drawing.svg",
+                  "component": "P-01",
+                  "expected": "P-01 2000 \u00d7 1000 \u00d7 8 mm t=8 mm",
+                  "actual": "P-01 2000 \u00d7 1000 \u00d7 6 mm t=6 mm"
+                }
+              ]
+            },
+            "validation": {
+              "status": "PASS",
+              "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+              "checked": [
+                "model.obj",
+                "manifest.json",
+                "bom.csv",
+                "drawing.svg"
+              ],
+              "findings": []
+            }
+          },
+          "stderr": ""
+        },
+        {
+          "command": [
+            "python",
+            "-m",
+            "hullguard",
+            "compare",
+            "fixtures/baseline.json",
+            "fixtures/thickness_changed.json",
+            "build\\manual-audit\\shell\\M24\\confirmed",
+            "--against",
+            "build\\manual-audit\\shell\\M24\\new"
+          ],
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "result": {
+            "project": "Open structural bay",
+            "baseline_revision": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7",
+            "revised_revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+            "before_mass_kg": 218.9052256,
+            "after_mass_kg": 250.3052256,
+            "delta_mass_kg": 31.400000000000006,
+            "added": [],
+            "removed": [],
+            "modified": [
+              {
+                "id": "P-01",
+                "before": {
+                  "id": "P-01",
+                  "kind": "bottom",
+                  "material": "steel-example",
+                  "size_mm": [
+                    2000.0,
+                    1000.0,
+                    6.0
+                  ],
+                  "origin_mm": [
+                    0.0,
+                    0.0,
+                    -6.0
+                  ],
+                  "thickness_mm": 6.0,
+                  "mass_kg": 94.2
+                },
+                "after": {
+                  "id": "P-01",
+                  "kind": "bottom",
+                  "material": "steel-example",
+                  "size_mm": [
+                    2000.0,
+                    1000.0,
+                    8.0
+                  ],
+                  "origin_mm": [
+                    0.0,
+                    0.0,
+                    -8.0
+                  ],
+                  "thickness_mm": 8.0,
+                  "mass_kg": 125.60000000000001
+                },
+                "delta_dimensions_mm": [
+                  0.0,
+                  0.0,
+                  2.0
+                ],
+                "delta_position_mm": [
+                  0.0,
+                  0.0,
+                  -2.0
+                ],
+                "delta_mass_kg": 31.400000000000006
+              }
+            ],
+            "affected_artifacts": [
+              "model.obj",
+              "manifest.json",
+              "bom.csv",
+              "drawing.svg",
+              "validation.json",
+              "report.html"
+            ],
+            "candidate_validation": {
+              "status": "PASS",
+              "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+              "checked": [
+                "model.obj",
+                "manifest.json",
+                "bom.csv",
+                "drawing.svg"
+              ],
+              "findings": []
+            },
+            "validation": {
+              "status": "PASS",
+              "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+              "checked": [
+                "model.obj",
+                "manifest.json",
+                "bom.csv",
+                "drawing.svg"
+              ],
+              "findings": []
+            }
+          },
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "source_commit": "381c1b03dd3869ab26b95d2e7d981109c475e52b"
+}

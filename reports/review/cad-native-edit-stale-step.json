@@ -1,0 +1,518 @@
+{
+  "status": "FAIL",
+  "revision": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+  "checked": [
+    "cad-manifest.json",
+    "model.FCStd",
+    "STEP"
+  ],
+  "findings": [
+    {
+      "code": "STALE_REVISION",
+      "artifact": "cad-manifest.json",
+      "component": "",
+      "expected": "c4da7d35208e91e61c7eba83dc9671dde3efc7cecfd2932d7bc241e3cccf8a70",
+      "actual": "8ec74eefceb3187b8a3637d8ca5fbfb8cde7d440d749d8617899b8eb4eea21a7"
+    },
+    {
+      "code": "CAD_DIGEST",
+      "artifact": "cad-manifest.json",
+      "component": "model.FCStd",
+      "expected": "41ea2a27458a59b2332afde4f58bc3b065f2a8122853baef73d019aacfe280c6",
+      "actual": "8729ad0277809c28db728a0981dd08e1f7fbaa038dcaf86798c57aef4433f52c"
+    },
+    {
+      "code": "CAD_POSITION",
+      "artifact": "STEP",
+      "component": "P-01",
+      "expected": [
+        0.0,
+        0.0,
+        -8.0
+      ],
+      "actual": [
+        0.0,
+        0.0,
+        -6.0
+      ]
+    },
+    {
+      "code": "CAD_DIMENSIONS",
+      "artifact": "STEP",
+      "component": "P-01",
+      "expected": [
+        2000.0,
+        1000.0,
+        8.0
+      ],
+      "actual": [
+        2000.0,
+        1000.0,
+        6.0
+      ]
+    },
+    {
+      "code": "CAD_CENTROID",
+      "artifact": "STEP",
+      "component": "P-01",
+      "expected": [
+        1000.0,
+        500.0,
+        -4.0
+      ],
+      "actual": [
+        1000.0,
+        500.0,
+        -3.0
+      ]
+    },
+    {
+      "code": "CAD_VOLUME",
+      "artifact": "STEP",
+      "component": "P-01",
+      "expected": 16000000.0,
+      "actual": 12000000.0
+    },
+    {
+      "code": "CAD_MASS",
+      "artifact": "STEP",
+      "component": "P-01",
+      "expected": 125.6,
+      "actual": 94.2
+    },
+    {
+      "code": "CAD_ASSEMBLY_MASS",
+      "artifact": "STEP",
+      "component": "",
+      "expected": 250.3052256,
+      "actual": 218.90522560000002
+    }
+  ],
+  "freecad_version": "1.1.4",
+  "native": {
+    "components": {
+      "B-01": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          1100.0,
+          6.0,
+          0.0
+        ],
+        "size_mm": [
+          8.0,
+          988.0,
+          430.0
+        ],
+        "volume_mm3": 3398719.999999999,
+        "centroid_mm": [
+          1104.0,
+          500.0,
+          215.0
+        ],
+        "id": "B-01",
+        "label": "B-01",
+        "type": "Part::Box",
+        "parameters_mm": [
+          8.0,
+          988.0,
+          430.0
+        ],
+        "mass_kg_from_cad_volume": 26.679951999999993
+      },
+      "P-01": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          0.0,
+          -8.0
+        ],
+        "size_mm": [
+          2000.0,
+          1000.0,
+          8.0
+        ],
+        "volume_mm3": 15999999.999999998,
+        "centroid_mm": [
+          1000.0,
+          500.0,
+          -4.0
+        ],
+        "id": "P-01",
+        "label": "P-01",
+        "type": "Part::Box",
+        "parameters_mm": [
+          2000.0,
+          1000.0,
+          8.0
+        ],
+        "mass_kg_from_cad_volume": 125.60000000000001
+      },
+      "P-02": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size_mm": [
+          2000.0,
+          6.0,
+          430.0
+        ],
+        "volume_mm3": 5160000.0,
+        "centroid_mm": [
+          1000.0,
+          3.0,
+          215.0
+        ],
+        "id": "P-02",
+        "label": "P-02",
+        "type": "Part::Box",
+        "parameters_mm": [
+          2000.0,
+          6.0,
+          430.0
+        ],
+        "mass_kg_from_cad_volume": 40.50600000000001
+      },
+      "P-03": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          994.0,
+          0.0
+        ],
+        "size_mm": [
+          2000.0,
+          6.0,
+          430.0
+        ],
+        "volume_mm3": 5160000.0,
+        "centroid_mm": [
+          1000.0,
+          997.0,
+          215.0
+        ],
+        "id": "P-03",
+        "label": "P-03",
+        "type": "Part::Box",
+        "parameters_mm": [
+          2000.0,
+          6.0,
+          430.0
+        ],
+        "mass_kg_from_cad_volume": 40.50600000000001
+      },
+      "S-01": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          272.0,
+          0.0
+        ],
+        "size_mm": [
+          1100.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 598400.0,
+        "centroid_mm": [
+          549.9999999999999,
+          276.0,
+          34.0
+        ],
+        "id": "S-01",
+        "label": "S-01",
+        "type": "Part::Box",
+        "parameters_mm": [
+          1100.0,
+          8.0,
+          68.0
+        ],
+        "mass_kg_from_cad_volume": 4.69744
+      },
+      "S-02": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          720.0,
+          0.0
+        ],
+        "size_mm": [
+          1100.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 598400.0,
+        "centroid_mm": [
+          549.9999999999999,
+          724.0,
+          34.0
+        ],
+        "id": "S-02",
+        "label": "S-02",
+        "type": "Part::Box",
+        "parameters_mm": [
+          1100.0,
+          8.0,
+          68.0
+        ],
+        "mass_kg_from_cad_volume": 4.69744
+      },
+      "S-03": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          1108.0,
+          272.0,
+          0.0
+        ],
+        "size_mm": [
+          892.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 485248.0,
+        "centroid_mm": [
+          1554.0,
+          276.0,
+          34.0
+        ],
+        "id": "S-03",
+        "label": "S-03",
+        "type": "Part::Box",
+        "parameters_mm": [
+          892.0,
+          8.0,
+          68.0
+        ],
+        "mass_kg_from_cad_volume": 3.8091968
+      },
+      "S-04": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          1108.0,
+          720.0,
+          0.0
+        ],
+        "size_mm": [
+          892.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 485248.0,
+        "centroid_mm": [
+          1554.0,
+          724.0,
+          34.0
+        ],
+        "id": "S-04",
+        "label": "S-04",
+        "type": "Part::Box",
+        "parameters_mm": [
+          892.0,
+          8.0,
+          68.0
+        ],
+        "mass_kg_from_cad_volume": 3.8091968
+      }
+    },
+    "assembly_mass_kg": 250.30522560000003
+  },
+  "step": {
+    "components": {
+      "B-01": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          1100.0,
+          6.0,
+          0.0
+        ],
+        "size_mm": [
+          8.0,
+          988.0,
+          430.0
+        ],
+        "volume_mm3": 3398719.999999999,
+        "centroid_mm": [
+          1104.0000000000002,
+          500.0,
+          215.0
+        ],
+        "mass_kg_from_cad_volume": 26.679951999999993
+      },
+      "P-01": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          0.0,
+          -6.0
+        ],
+        "size_mm": [
+          2000.0,
+          1000.0,
+          6.0
+        ],
+        "volume_mm3": 12000000.0,
+        "centroid_mm": [
+          1000.0,
+          500.0,
+          -3.0
+        ],
+        "mass_kg_from_cad_volume": 94.2
+      },
+      "P-02": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "size_mm": [
+          2000.0,
+          6.0,
+          430.0
+        ],
+        "volume_mm3": 5160000.0,
+        "centroid_mm": [
+          1000.0,
+          3.0,
+          215.0
+        ],
+        "mass_kg_from_cad_volume": 40.50600000000001
+      },
+      "P-03": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          994.0,
+          0.0
+        ],
+        "size_mm": [
+          2000.0,
+          6.0,
+          430.0
+        ],
+        "volume_mm3": 5160000.0,
+        "centroid_mm": [
+          1000.0,
+          997.0,
+          215.0
+        ],
+        "mass_kg_from_cad_volume": 40.50600000000001
+      },
+      "S-01": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          272.0,
+          0.0
+        ],
+        "size_mm": [
+          1100.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 598400.0,
+        "centroid_mm": [
+          549.9999999999999,
+          276.0,
+          34.0
+        ],
+        "mass_kg_from_cad_volume": 4.69744
+      },
+      "S-02": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          0.0,
+          720.0,
+          0.0
+        ],
+        "size_mm": [
+          1100.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 598400.0,
+        "centroid_mm": [
+          549.9999999999999,
+          724.0,
+          34.0
+        ],
+        "mass_kg_from_cad_volume": 4.69744
+      },
+      "S-03": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          1108.0,
+          272.0,
+          0.0
+        ],
+        "size_mm": [
+          892.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 485248.0,
+        "centroid_mm": [
+          1554.0,
+          276.00000000000006,
+          34.0
+        ],
+        "mass_kg_from_cad_volume": 3.8091968
+      },
+      "S-04": {
+        "valid": true,
+        "solid_count": 1,
+        "topology": "Solid",
+        "origin_mm": [
+          1108.0,
+          720.0,
+          0.0
+        ],
+        "size_mm": [
+          892.0,
+          8.0,
+          68.0
+        ],
+        "volume_mm3": 485248.0,
+        "centroid_mm": [
+          1554.0,
+          724.0,
+          34.0
+        ],
+        "mass_kg_from_cad_volume": 3.8091968
+      }
+    },
+    "assembly_mass_kg": 218.90522560000002
+  }
+}

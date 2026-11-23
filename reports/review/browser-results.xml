@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites id="" name="" tests="9" failures="0" skipped="0" errors="0" time="15.599314999999999">
+<testsuite name="demo.spec.js" timestamp="2026-11-23T15:07:03.098Z" tests="6" failures="0" skipped="0" time="8.564" errors="0">
+<testcase name="generated OBJ renders and pointer/keyboard selection hydrates the manifest" classname="demo.spec.js" time="3.637">
+</testcase>
+<testcase name="revision view renders thickness, mass, and changed component identities" classname="demo.spec.js" time="1.11">
+</testcase>
+<testcase name="dashboard leads to repeatable faults and serves the exact evidence" classname="demo.spec.js" time="1.381">
+</testcase>
+<testcase name="engineering report and every revision export are served" classname="demo.spec.js" time="0.788">
+</testcase>
+<testcase name="compact viewport retains navigation and component inspection" classname="demo.spec.js" time="0.98">
+</testcase>
+<testcase name="unavailable WebGL leaves readable geometry evidence" classname="demo.spec.js" time="0.668">
+</testcase>
+</testsuite>
+<testsuite name="plate-editor.spec.js" timestamp="2026-11-23T15:07:03.098Z" tests="3" failures="0" skipped="0" time="4.056" errors="0">
+<testcase name="live 8 mm edit agrees with independently generated Python reference and downloads model" classname="plate-editor.spec.js" time="1.101">
+</testcase>
+<testcase name="valid nonfixture edits and no-op are calculated from the loaded model" classname="plate-editor.spec.js" time="0.842">
+</testcase>
+<testcase name="invalid input clears previous results and reports actionable guidance" classname="plate-editor.spec.js" time="2.113">
+</testcase>
+</testsuite>
+</testsuites>

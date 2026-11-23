@@ -1,0 +1,163 @@
+{
+  "kind": "scripted browser reproduction",
+  "source_commit": "381c1b03dd3869ab26b95d2e7d981109c475e52b",
+  "platform": "Windows AMD64",
+  "playwright": "Version 1.65.1",
+  "rendering": "SwiftShader except intentional no-WebGL case M22",
+  "stats": {
+    "startTime": "2026-11-23T15:07:32.495Z",
+    "duration": 17903.951999999997,
+    "expected": 10,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "cases": [
+    {
+      "id": "M11",
+      "check": "M11 faulty drawing visibly retains the P-01 6 mm annotation",
+      "status": "passed",
+      "duration_ms": 1602,
+      "screenshot": "M11.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M15",
+      "check": "M15 pointer rotation, repeated zoom, reset, and keyboard camera controls",
+      "status": "passed",
+      "duration_ms": 4176,
+      "screenshot": "M15.png",
+      "camera comparison": {
+        "buttonReset": 0.006215181352525762,
+        "keyboardReset": 0.006215181352525762,
+        "maxDifference": 0.01,
+        "channelThreshold": 16
+      },
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M16",
+      "check": "M16 inspector and table select matching components and canvas picking updates both",
+      "status": "passed",
+      "duration_ms": 2102,
+      "screenshot": "M16.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M17",
+      "check": "M17 stiffener layout identifies add, remove, and Y-axis deltas",
+      "status": "passed",
+      "duration_ms": 1263,
+      "screenshot": "M17.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M18",
+      "check": "M18 QA dashboard counts and stale BOM reproduction are visible",
+      "status": "passed",
+      "duration_ms": 894,
+      "screenshot": "M18.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M19",
+      "check": "M19 wrong conversion and duplicate IDs show detectors and serve actual evidence",
+      "status": "passed",
+      "duration_ms": 951,
+      "screenshot": "M19.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M20",
+      "check": "M20 revised HTML report serves comparison, revised drawing, and BOM",
+      "status": "passed",
+      "duration_ms": 1555,
+      "screenshot": "M20.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M21",
+      "check": "M21 mobile header, independent scroll regions, and keyboard focus",
+      "status": "passed",
+      "duration_ms": 977,
+      "screenshot": "M21.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        }
+      }
+    },
+    {
+      "id": "M22",
+      "check": "M22 disabled WebGL retains accessible selector and real OBJ download",
+      "status": "passed",
+      "duration_ms": 1046,
+      "screenshot": "M22.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    },
+    {
+      "id": "M23",
+      "check": "M23 SVG renders edited P-01 text while metadata retains 6 mm",
+      "status": "passed",
+      "duration_ms": 401,
+      "screenshot": "M23.png",
+      "environment": {
+        "chromium": "159.0.8154.6",
+        "viewport": {
+          "width": 1440,
+          "height": 980
+        }
+      }
+    }
+  ]
+}
