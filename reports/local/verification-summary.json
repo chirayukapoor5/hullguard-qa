@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "executed_utc": "2026-11-23T14:09:50+00:00",
-  "source_commit": null,
-  "source_dirty": null,
+  "executed_utc": "2026-11-23T14:11:51+00:00",
+  "source_commit": "9078d88477a839623facfd1c22c985f62a8e2579",
+  "source_dirty": false,
   "platform": "Windows AMD64",
   "tools": {
     "python": "3.12.10",
@@ -10,7 +10,7 @@
       "hullguard-qa": "1.0.0",
       "pytest": "9.0.3",
       "pytest-cov": "7.1.0",
-      "coverage": "7.17.4",
+      "coverage": "7.17.5",
       "ruff": "0.15.21",
       "defusedxml": "0.7.1"
     },
@@ -125,7 +125,7 @@
     "line_percent": 99.08,
     "branch_percent": 96.15,
     "combined_percent": 98.44497607655502,
-    "tool": "7.17.4"
+    "tool": "7.17.5"
   },
   "browser_results": {
     "tests": 6,

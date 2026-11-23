@@ -2,7 +2,7 @@
 
 ## Local verification · 23 November 2026
 
-The Windows verification run passed formatting, lint, fixture regeneration, the Vite build, both Python test groups, and Chromium acceptance. The public evidence snapshot records the exact source commit, environment, commands, counts, and stage statuses.
+The Windows run passed from a clean checkout after a fresh Python environment and `npm ci`. It passed formatting, lint, fixture regeneration, the Vite build, both Python test groups, and Chromium acceptance. The evidence snapshot records the verified implementation commit, environment, commands, counts, and stage statuses.
 
 | Check | Observed outcome |
 | --- | --- |
@@ -14,7 +14,7 @@ The Windows verification run passed formatting, lint, fixture regeneration, the 
 | Healthy fixture bundles | 3 passed |
 | Deliberate fault cases | 6 expected detections. These validator results correctly report FAIL. |
 
-Executed with Python 3.12.10, pytest 9.0.3, pytest-cov 7.1.0, coverage.py 7.17.4, Ruff 0.15.21, Node 26.13.0, npm 11.20.0, Vite 8.3.8, and Playwright 1.65.1. Chromium was the Playwright-provisioned 159.0.8154.6 build with software WebGL for the scripted browser suite.
+Executed with Python 3.12.10, pytest 9.0.3, pytest-cov 7.1.0, coverage.py 7.17.5, Ruff 0.15.21, Node 26.13.0, npm 11.20.0, Vite 8.3.8, and Playwright 1.65.1. Chromium was the Playwright-provisioned 159.0.8154.6 build with software WebGL for the scripted browser suite.
 
 [Verification summary](../reports/local/verification-summary.json) · [Python JUnit](../reports/local/test-results.xml) · [Cobertura coverage](../reports/local/coverage.xml) · [Browser JUnit](../reports/local/browser-results.xml)
 

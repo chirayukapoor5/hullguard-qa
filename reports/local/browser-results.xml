@@ -1,16 +1,16 @@
-<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="11.682698">
-<testsuite name="demo.spec.js" timestamp="2026-11-23T14:09:39.796Z" hostname="" tests="6" failures="0" skipped="0" time="8.973" errors="0">
-<testcase name="generated OBJ renders and pointer/keyboard selection hydrates the manifest" classname="demo.spec.js" time="3.533">
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="12.973630000000002">
+<testsuite name="demo.spec.js" timestamp="2026-11-23T14:11:39.717Z" hostname="" tests="6" failures="0" skipped="0" time="10.176" errors="0">
+<testcase name="generated OBJ renders and pointer/keyboard selection hydrates the manifest" classname="demo.spec.js" time="3.462">
 </testcase>
-<testcase name="revision view renders thickness, mass, and changed component identities" classname="demo.spec.js" time="1.101">
+<testcase name="revision view renders thickness, mass, and changed component identities" classname="demo.spec.js" time="1.449">
 </testcase>
-<testcase name="dashboard leads to repeatable faults and serves the exact evidence" classname="demo.spec.js" time="1.311">
+<testcase name="dashboard leads to repeatable faults and serves the exact evidence" classname="demo.spec.js" time="1.499">
 </testcase>
-<testcase name="engineering report and every revision export are served" classname="demo.spec.js" time="0.873">
+<testcase name="engineering report and every revision export are served" classname="demo.spec.js" time="1.197">
 </testcase>
-<testcase name="compact viewport retains navigation and component inspection" classname="demo.spec.js" time="1.292">
+<testcase name="compact viewport retains navigation and component inspection" classname="demo.spec.js" time="1.689">
 </testcase>
-<testcase name="unavailable WebGL leaves readable geometry evidence" classname="demo.spec.js" time="0.863">
+<testcase name="unavailable WebGL leaves readable geometry evidence" classname="demo.spec.js" time="0.88">
 </testcase>
 </testsuite>
 </testsuites>

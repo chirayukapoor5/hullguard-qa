@@ -29,9 +29,11 @@ The plate calculation uses `2.0 m × 1.0 m × thickness in m × 7,850 kg/m³`. A
 
 ## Quick start
 
-Use Python 3.11+ and Node 22.12+ on Node 22.x or Node 24+. Clone this repository and run these commands from its root.
+Use Python 3.11+ and either Node 22.12+ in the 22.x release line or Node 24+. Open a shell and prepare the project.
 
 ```sh
+git clone https://github.com/chirayukapoor5/hullguard-qa.git
+cd hullguard-qa
 python -m venv .venv
 ```
 
