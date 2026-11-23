@@ -14,4 +14,8 @@ reports/local/*
 !reports/local/*.xml
 !reports/local/*.json
 !reports/local/*.png
+!reports/review/
+!reports/review/*.xml
+!reports/review/*.json
+!reports/review/*.png
 build/

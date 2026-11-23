@@ -4,7 +4,7 @@ A ship structure can be represented by a 3D model, a bill of materials, engineer
 
 ## Approach
 
-The model is an eight-component rectangular bay with bottom and side plating, a transverse bulkhead and split longitudinal flat bars. One typed model produces four engineering artifacts with a common source revision. A separate validator reads those artifacts back, checking identity, geometry, mass and annotation consistency. The revision tool pairs components by ID, reports changes and can reconcile an exported candidate against the revised source. The static Three.js demo uses exported OBJ, manifest and validation results from the Python workflow.
+The model is an eight-component rectangular bay with bottom and side plating, a transverse bulkhead and split longitudinal flat bars. One typed model produces four engineering artifacts with a common source revision. A separate validator reads those artifacts back, checking identity, geometry, mass and annotation consistency. The revision tool pairs components by ID, reports changes and can reconcile an exported candidate against the revised source. The Three.js demo uses the actual OBJ and precomputed QA records. A live browser editor recalculates the baseline bottom plate and saves revised canonical JSON. The optional FreeCAD adapter builds editable native boxes and independently reopens their STEP solids for exact-fixture comparisons.
 
 ## QA design
 
@@ -17,12 +17,12 @@ Stale exports and mm-to-m conversion errors score highest in the project risk mo
 | Stiffener layout revision | S-01 moves +30 mm in Y and grows 2 mm in Y. S-04 is removed and S-05 is added. Assembly delta is +1.17436 kg. |
 | Controlled negative executions | Six intended detector results reproduced by the CLI with specific file, component, code and exit assertions. |
 
-The [execution report](TEST_EXECUTION_REPORT.md) links the measured test, coverage and browser evidence and states the status of the human manual cases.
+The scripted audit reproduced 24 manual cases using shell and Chromium checks. It records actual outcomes and retains all human statuses as NOT EXECUTED. The adversarial review reproduced false PASS outcomes on the original commit for near-zero BOM values, SVG transforms and manifest schema lookalikes. It also reproduced a stale PASS report after an interrupted export. On genuine CAD data, a restamped old STEP still failed the dimensional and mass checks. [Manual audit](MANUAL_EXECUTION_REPORT.md) · [Adversarial review](PRINCIPAL_REVIEW.md) · [Execution report](TEST_EXECUTION_REPORT.md)
 
 ## Trade-offs and extension path
 
-Disjoint axis-aligned boxes make the geometry independently calculable and make intersection errors reproducible. They constrain the model to simple assemblies. A static frontend makes the evidence inspectable with a browser and keeps the fixture source and CLI reproductions in the repository. Structural strength, production drawings, real CAD interoperability and independently evaluated naval-domain correctness remain outside the demonstrated scope.
+Disjoint axis-aligned boxes make the geometry independently calculable and make intersection errors reproducible. They constrain the model to simple assemblies. A static frontend makes the evidence inspectable with a browser and keeps the fixture source and CLI reproductions in the repository. The FreeCAD round trip covers editable boxes and positioned single-solid STEP exports. Mass uses the documented example density and measured CAD volume. Structural strength, production drawings and domain-qualified vessel geometry remain outside the demonstrated scope.
 
-To extend the validation target, add a supported CAD adapter with an agreed coordinate and material mapping and a reviewed set of complex test solids. Seek domain review of fixtures and numerical acceptance criteria, then use full-session exploratory testing to evaluate workflows that fixed browser checks do not cover.
+The next evidence would come from a human exploratory session and an independently reviewed fixture, followed by an exchange check with another CAD system. [FreeCAD round trip](CAD_INTEROP.md)
 
 [Domain assumptions](DOMAIN_ASSUMPTIONS.md) · [Risk register](RISK_REGISTER.md) · [Design review](ENGINEERING_DESIGN_REVIEW.md)

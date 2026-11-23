@@ -16,11 +16,11 @@ Axis-aligned boxes permit transparent placement checks with exact rounded bounds
 
 Canonical input errors use specific code/field diagnostics and exit 2. Bundle findings use exit 1 and include artifact, component, expected and observed values. A wrong hash and incorrect content can be reported together. A failed candidate does not prevent regenerating a fresh revised bundle. Reports capture both outcomes, and validator findings remain useful when another artifact is missing or malformed.
 
-Exports produce a set of files in an output directory. Use a distinct directory for each reviewer or run when concurrent writes are possible. If a process is interrupted halfway through, rerun the export and verify the full bundle before distribution. The machine checks cover the four engineering representations. The generated reports describe those checks and link to their evidence.
+A writer stages and validates the core exports, removes earlier attestations before replacing artifacts, and publishes validation last. A directory marker serializes participating writers. Separate output directories remain useful for independent runs. After interruption rerun and verify the complete bundle before distribution. The machine checks cover the four engineering representations. The generated reports describe those checks and link to their evidence.
 
 ## Alternatives and CI boundaries
 
-Python can generate and read this bounded mesh without a full geometry library. Three.js consumes the exported geometry in the browser. A native CAD engine would provide curved topology, rotations and richer geometry, alongside a larger test matrix and dependencies. FreeCAD is a possible future adapter after headless tests on supported platforms and a review of import/export semantics.
+Python can generate and read this bounded mesh without a full geometry library. Three.js consumes the exported geometry in the browser. The optional FreeCAD process adds editable boxes and per-part STEP exchange, measured separately from the ordinary core. The live browser editor uses exact integer micrometres for the bottom plate and exports source JSON. The default CI and static site require neither FreeCAD nor a server for the calculation. [CAD scope and measurements](CAD_INTEROP.md)
 
 A static evidence site provides predictable reviewer access without sending data to a service. The pinned workflow runs Python and the frontend build on Windows and Linux, plus Chromium on Linux. Windows browser results can be reproduced locally. Unit/branch coverage records exercised behavior. Independent test oracles, documented manual charters and format-specific fault tests address risks that coverage alone cannot quantify.
 

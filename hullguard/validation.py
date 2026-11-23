@@ -31,19 +31,29 @@ def reference_values(part: Component) -> tuple[float, float]:
     return float(volume), float(mass)
 
 
-def close(actual: object, expected: float, tolerance: float = DIMENSION_TOLERANCE) -> bool:
+def close(
+    actual: object,
+    expected: float,
+    tolerance: float = DIMENSION_TOLERANCE,
+    *,
+    relative: float = 1e-12,
+) -> bool:
     try:
         number = float(actual)
     except (TypeError, ValueError, OverflowError):
         return False
-    return type(actual) is not bool and isclose(number, expected, abs_tol=tolerance, rel_tol=1e-12)
+    return type(actual) is not bool and isclose(
+        number, expected, abs_tol=tolerance, rel_tol=relative
+    )
 
 
 def close_vector(actual: object, expected: tuple[float, ...]) -> bool:
     return (
         isinstance(actual, list | tuple)
         and len(actual) == len(expected)
-        and all(close(value, target) for value, target in zip(actual, expected, strict=True))
+        and all(
+            close(value, target, relative=0) for value, target in zip(actual, expected, strict=True)
+        )
     )
 
 
@@ -70,8 +80,15 @@ class ArtifactCheck:
         actual: object,
         component: str = "",
         tolerance: float = DIMENSION_TOLERANCE,
+        *,
+        positive: bool = False,
     ) -> None:
-        self.expect(close(actual, expected, tolerance), code, expected, actual, component)
+        if positive:
+            tolerance = min(tolerance, expected * 1e-6)
+        matches = close(actual, expected, tolerance)
+        self.expect(
+            matches and (not positive or float(actual) > 0), code, expected, actual, component
+        )
 
     def vector(
         self, code: str, expected: tuple[float, ...], actual: object, component: str
@@ -95,8 +112,8 @@ class ArtifactCheck:
         self.equal("MATERIAL", p.material, row.get("material"), p.id)
         self.scalar("DENSITY", DENSITY[p.material], row.get("density_kg_m3"), p.id)
         self.scalar("THICKNESS", p.thickness_mm, row.get("thickness_mm"), p.id)
-        self.scalar("VOLUME", volume, row.get("volume_m3"), p.id, VOLUME_TOLERANCE)
-        self.scalar("MASS", mass, row.get("mass_kg"), p.id, MASS_TOLERANCE)
+        self.scalar("VOLUME", volume, row.get("volume_m3"), p.id, VOLUME_TOLERANCE, positive=True)
+        self.scalar("MASS", mass, row.get("mass_kg"), p.id, MASS_TOLERANCE, positive=True)
 
     @property
     def expected_total(self) -> float:
@@ -147,7 +164,8 @@ def check_manifest(check: ArtifactCheck, content: str) -> None:
     )
     if not isinstance(data, dict) or not isinstance(data.get("components"), list):
         raise ValueError("manifest requires an object and component array")
-    check.equal("MANIFEST_SCHEMA", 1, data.get("schema"))
+    schema = data.get("schema")
+    check.expect(type(schema) is int and schema == 1, "MANIFEST_SCHEMA", 1, schema)
     check.equal("PROJECT", check.model.project, data.get("project"))
     check.revision(data.get("revision"))
     check.equal("UNITS", UNITS, data.get("units"))
@@ -156,6 +174,7 @@ def check_manifest(check: ArtifactCheck, content: str) -> None:
         check.expected_total,
         data.get("assembly_mass_kg"),
         tolerance=MASS_TOLERANCE,
+        positive=True,
     )
     rows = []
     for row in data["components"]:
@@ -192,7 +211,9 @@ def check_bom(check: ArtifactCheck, content: str) -> None:
         total = fsum(finite_decimal(row["mass_kg"]) for row in rows)
     except (ValueError, OverflowError):
         total = "invalid numeric row or total"
-    check.scalar("ASSEMBLY_MASS", check.expected_total, total, tolerance=MASS_TOLERANCE)
+    check.scalar(
+        "ASSEMBLY_MASS", check.expected_total, total, tolerance=MASS_TOLERANCE, positive=True
+    )
 
 
 def check_drawing(check: ArtifactCheck, content: str) -> None:
@@ -209,6 +230,8 @@ def check_drawing(check: ArtifactCheck, content: str) -> None:
     check.equal("UNITS", "mm", metadata[0].get("units"))
     check.equal("PROJECTION", "XY", metadata[0].get("projection"))
     view = views[0]
+    for element, name in ((root, "root"), (view, "plan"), (schedules[0], "schedule")):
+        check.equal("DRAWING_EXTRA_TRANSFORM", None, element.get("transform"), name)
     bottom = next(part for part in check.parts.values() if part.kind == "bottom")
     x, y, _ = bottom.origin_mm
     sx, sy, _ = bottom.size_mm
@@ -231,6 +254,7 @@ def check_drawing(check: ArtifactCheck, content: str) -> None:
     for name, part in check.parts.items():
         if name in plan:
             rect = plan[name]
+            check.equal("DRAWING_EXTRA_TRANSFORM", None, rect.get("transform"), name)
             check.vector(
                 "DRAWING_POSITION", part.origin_mm[:2], [rect.get("x"), rect.get("y")], name
             )
@@ -239,6 +263,7 @@ def check_drawing(check: ArtifactCheck, content: str) -> None:
             )
         if name in annotations:
             label = annotations[name]
+            check.equal("DRAWING_EXTRA_TRANSFORM", None, label.get("transform"), name)
             check.vector(
                 "DRAWING_DIMENSIONS", part.size_mm, label.get("data-size-mm", "").split(), name
             )

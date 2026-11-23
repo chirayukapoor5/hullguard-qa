@@ -4,11 +4,12 @@ import '@fontsource/barlow/latin-600.css';
 import '@fontsource/barlow/latin-700.css';
 import '@fontsource/ibm-plex-mono/latin-400.css';
 import './style.css';
+import { renderPlateEditor } from './plate-editor.js';
 import { mountViewer } from './viewer.js';
 
 const root = document.querySelector('main');
 const dataRoot = `${import.meta.env.BASE_URL}data/`;
-const routes = ['structure', 'revisions', 'checks', 'faults', 'report'];
+const routes = ['structure', 'revisions', 'editor', 'checks', 'faults', 'report'];
 const kinds = { bottom: 'Bottom plate', side: 'Side plate', bulkhead: 'Transverse bulkhead', stiffener: 'Longitudinal stiffener' };
 const files = {
   'model.obj': '3D mesh (OBJ)', 'manifest.json': 'Manifest (JSON)', 'bom.csv': 'BOM (CSV)',
@@ -314,7 +315,13 @@ async function report(generation) {
   });
 }
 
-const views = { structure, revisions, checks, faults, report };
+async function editor(generation) {
+  const baseline = catalog.revisions.find(row => row.id === 'baseline');
+  const model = await fetchFile(baseline.directory + '/model.json');
+  if (generation === renderGeneration) renderPlateEditor(root, model, projectHeader);
+}
+
+const views = { structure, revisions, editor, checks, faults, report };
 
 async function render() {
   if (!catalog) return;

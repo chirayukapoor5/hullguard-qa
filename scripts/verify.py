@@ -127,6 +127,9 @@ def main() -> int:
         action="store_true",
         help="Explicitly omit browser checks when Chromium cannot be provisioned",
     )
+    parser.add_argument(
+        "--freecad", help="Run optional native/STEP integration tests with this console executable"
+    )
     args = parser.parse_args()
     REPORTS.mkdir(exist_ok=True)
     for name in (
@@ -135,6 +138,7 @@ def main() -> int:
         "test-results.xml",
         "coverage.xml",
         "browser-results.xml",
+        "cad-results.xml",
         ".coverage",
     ):
         (REPORTS / name).unlink(missing_ok=True)
@@ -231,10 +235,39 @@ def main() -> int:
     else:
         runner.run("browser-acceptance", [npm, "run", "test:e2e"], FRONTEND)
 
+    if not args.freecad:
+        runner.record(
+            "freecad-integration",
+            "SKIPPED",
+            reason="Optional --freecad executable was not supplied",
+        )
+    elif not tools_ready or not shutil.which(args.freecad):
+        runner.record(
+            "freecad-integration",
+            "BLOCKED",
+            reason="Python tools or FreeCAD executable unavailable",
+        )
+    else:
+        runner.run(
+            "freecad-integration",
+            [
+                sys.executable,
+                "-m",
+                "pytest",
+                "cad_tests",
+                "--freecad",
+                args.freecad,
+                "--cad-evidence",
+                "build/cad-observations",
+                "--junitxml=reports/cad-results.xml",
+            ],
+        )
+
     python_results = combine_junit(
         ["positive-results.xml", "fault-results.xml"], REPORTS / "test-results.xml"
     )
     browser_results = combine_junit(["browser-results.xml"], REPORTS / "browser-summary.xml")
+    cad_results = combine_junit(["cad-results.xml"], REPORTS / "cad-summary.xml")
     expected = {"PASS", "SKIPPED"}
     status = (
         "PASS" if all(stage["status"] in expected for stage in runner.stages.values()) else "FAIL"
@@ -263,6 +296,7 @@ def main() -> int:
         "python_results": python_results,
         "coverage": coverage_metrics(REPORTS / "coverage.xml"),
         "browser_results": browser_results,
+        "cad_results": cad_results,
     }
     (REPORTS / "verification-summary.json").write_text(
         json.dumps(summary, indent=2) + "\n", encoding="utf-8"

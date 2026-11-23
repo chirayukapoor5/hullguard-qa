@@ -1,6 +1,14 @@
 # Test execution report
 
-## Local verification · 23 November 2026
+## Principal review verification · 23 November 2026
+
+The existing 95 Python and six Chromium regression cases were retained. The updated verifier passed 104 core Python tests, nine Chromium tests, seven optional FreeCAD tests, all six original injected faults, lint, formatting and the frontend build. Core coverage was 98.29% combined line and branch. The optional adapter was exercised with the verified portable FreeCAD 1.1.4 Windows console.
+
+The clean execution summary records the implementation commit and tools. Core, browser, and optional CAD suites have separate JUnit evidence. The 24-case manual audit is a separate scripted exercise, with 0/24 human cases executed.
+
+[Clean summary](../reports/review/verification-summary.json) · [Python JUnit](../reports/review/test-results.xml) · [Coverage](../reports/review/coverage.xml) · [Chromium JUnit](../reports/review/browser-results.xml) · [CAD JUnit](../reports/review/cad-results.xml) · [Manual audit](MANUAL_EXECUTION_REPORT.md)
+
+## Initial public release · 23 November 2026
 
 The Windows run passed from a clean checkout after a fresh Python environment and `npm ci`. It passed formatting, lint, fixture regeneration, the Vite build, both Python test groups, and Chromium acceptance. The evidence snapshot records the verified implementation commit, environment, commands, counts, and stage statuses.
 

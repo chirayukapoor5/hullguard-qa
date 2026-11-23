@@ -1,6 +1,6 @@
 # Manual test cases
 
-Environment definitions and evidence handling are in the [manual plan](MANUAL_TEST_PLAN.md). Automated browser and CLI results are recorded separately. Each case below is ready for a human run.
+Environment definitions and evidence handling are in the [manual plan](MANUAL_TEST_PLAN.md). Automated browser and CLI results are recorded in the [manual execution audit](MANUAL_EXECUTION_REPORT.md). Each case below is ready for a human run.
 
 ## M01 · README quick start
 

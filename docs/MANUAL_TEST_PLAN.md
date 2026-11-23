@@ -20,4 +20,4 @@ Start with a clean checkout, an activated Python environment with development de
 
 Mark each case PASS or FAIL only after observing its expected outcome. Use BLOCKED with a dependency explanation and NOT EXECUTED when no run took place. For a failure, capture actual versus expected, reproducibility, scope and severity, then retry after any fix. A test automated by Playwright does not count as a human manual execution.
 
-[Manual cases](MANUAL_TEST_CASES.md) · [Example defect reports](DEFECT_REPORTS.md)
+[Manual cases](MANUAL_TEST_CASES.md) · [Scripted execution report](MANUAL_EXECUTION_REPORT.md) · [Example defect reports](DEFECT_REPORTS.md)

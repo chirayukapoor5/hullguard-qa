@@ -2,20 +2,22 @@
 
 **Catch ship-structure changes that leave geometry, bills of materials, or drawings out of sync.**
 
-[Open the live demo](https://chirayukapoor5.github.io/hullguard-qa/) · [Case study](docs/CASE_STUDY.md) · [GitHub Actions](https://github.com/chirayukapoor5/hullguard-qa/actions)
+[Open the live demo](https://chirayukapoor5.github.io/hullguard-qa/) · [Plate editor](https://chirayukapoor5.github.io/hullguard-qa/#editor) · [Case study](docs/CASE_STUDY.md) · [GitHub Actions](https://github.com/chirayukapoor5/hullguard-qa/actions)
 
 Edit a steel plate from 6 mm to 8 mm, inspect the actual 3D export, reconcile the expected **+31.4 kg** mass change, and reproduce the failure caused by retaining an old BOM or drawing.
 
 Independent educational engineering QA project. Not affiliated with, endorsed by, or integrated with NAPA.
 
-![The running Structure explorer with the synthetic open structural bay and bottom plate selected](reports/local/structure-explorer.png)
+![The running Structure explorer with the synthetic open structural bay and bottom plate selected](reports/review/M16.png)
 
 ## What it checks
 
 - **Source model.** Valid units, material and density, unique component IDs, supported dimensions, bottom placement, and no positive-volume intersections.
 - **Export consistency.** Re-imports the OBJ, manifest, BOM and schematic SVG. Checks named mesh components, topology, bounds, dimensions, mass, drawing annotations, and canonical revision hashes.
 - **Revision impact.** Reports changes in identity, thickness, dimensions, position and mass. A candidate bundle can be compared with regenerated outputs to expose stale evidence.
-- **Review workflow.** Five browser views cover 3D inspection, revision comparison, QA results, six controlled faults and the engineering report. The static site shows precomputed Python validator results with the commands and files needed to reproduce them.
+- **Live plate editor.** Enter a thickness to calculate geometry and mass changes in the browser. Download the revised canonical JSON and regenerate the exports with the CLI.
+- **Review workflow.** Browse the 3D model, compare revisions, and inspect precomputed Python QA evidence, six controlled faults, and their reproduction commands.
+- **Optional CAD exchange.** Generate editable FreeCAD boxes and per-component STEP solids. Reopen both representations and reconcile measured geometry and mass against the canonical model. [FreeCAD setup and evidence](docs/CAD_INTEROP.md)
 
 ## Engineering example
 
@@ -68,7 +70,7 @@ The final command exits **1**. Read `STALE_REVISION` and the P-01 mass finding. 
 
 ## Architecture and evidence
 
-Verification passed **95 Python tests**, **6 Chromium acceptance tests**, and **98.44% combined line and branch coverage**. GitHub Actions passed on Windows and Linux, with Chromium acceptance on Linux. All six injected faults triggered their expected detectors.
+Verification passed **104 core Python tests**, **9 Chromium regression tests**, and **7 optional FreeCAD tests**. Core coverage was **98.29% combined line and branch**. A separate scripted audit reproduced the 24 manual cases with recorded output and screenshots. Human manual execution remains 0/24.
 
 ```mermaid
 flowchart LR
@@ -83,13 +85,13 @@ flowchart LR
     F --> G
 ```
 
-- [Execution report](docs/TEST_EXECUTION_REPORT.md) and dated [verification summary](reports/local/verification-summary.json) include measured results, tooling and execution scope. Reruns generate JUnit XML, Cobertura XML and JSON in `reports/`.
+- [Execution report](docs/TEST_EXECUTION_REPORT.md) and dated [verification summary](reports/review/verification-summary.json) include measured results, tooling and execution scope. Reruns generate JUnit XML, Cobertura XML and JSON in `reports/`.
 - [GitHub Actions](https://github.com/chirayukapoor5/hullguard-qa/actions) runs the Windows and Linux jobs and publishes the verified static bundle through GitHub Pages. The Linux job also runs browser acceptance.
-- [Manual test plan](docs/MANUAL_TEST_PLAN.md), [24 manual cases](docs/MANUAL_TEST_CASES.md), [controlled defect reports](docs/DEFECT_REPORTS.md), and [requirements traceability](docs/REQUIREMENTS_TRACEABILITY.md) show the review and reproduction design.
+- [Manual execution audit](docs/MANUAL_EXECUTION_REPORT.md), [manual test plan](docs/MANUAL_TEST_PLAN.md), [24 manual cases](docs/MANUAL_TEST_CASES.md), [controlled defect reports](docs/DEFECT_REPORTS.md), and [requirements traceability](docs/REQUIREMENTS_TRACEABILITY.md) show the review and reproduction design.
 
 ## Scope and documentation
 
-Rectangular, axis-aligned solids and one example steel density define the supported model. The schematic plan illustrates simplified dimensions. Native CAD formats, classification, strength and finite-element analysis, production drawings and genuine product integration are outside scope.
+Rectangular, axis-aligned solids and one example steel density define the supported model. The schematic plan illustrates simplified dimensions. FreeCAD exchange covers the generated boxes and per-component STEP. Classification, structural strength, finite-element analysis, production drawings, and commercial ship-design integration are outside scope. [Principal QA review](docs/PRINCIPAL_REVIEW.md)
 
 | Audience | Start here |
 | --- | --- |

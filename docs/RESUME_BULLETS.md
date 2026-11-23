@@ -1,5 +1,5 @@
 # CV bullets
 
-- Built HULLGUARD QA in Python to validate ship-structure fixtures and reconcile OBJ geometry, BOM CSV, JSON manifests, and SVG drawing annotations against a versioned source model.
-- Implemented independent mass and geometry checks, design revision comparisons, and six reproducible fault scenarios covering stale exports, unit conversion, missing parts, and invalid input.
-- Developed a Three.js inspection demo and a cross-platform verification pipeline with pytest, Playwright, GitHub Actions, and 24 documented manual test cases.
+- Built Python regression checks for synthetic ship structures, reconciling geometry, mass, BOM and drawing annotations. Added adversarial tests for false passes and interrupted export publication.
+- Implemented editable FreeCAD FCStd and STEP exchange verification, checking round-trip dimensions and volume-derived mass against independent references and reproducing stale and missing exports.
+- Shipped a live Three.js plate-edit workflow and cross-platform CI with 104 passing core Python tests, 9 Chromium regression tests, and auditable scripted evidence for 24 manual QA cases.
