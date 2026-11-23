@@ -2,6 +2,8 @@
 
 **Catch ship-structure changes that leave geometry, bills of materials, or drawings out of sync.**
 
+[Open the live demo](https://chirayukapoor5.github.io/hullguard-qa/) · [Case study](docs/CASE_STUDY.md) · [GitHub Actions](https://github.com/chirayukapoor5/hullguard-qa/actions)
+
 Edit a steel plate from 6 mm to 8 mm, inspect the actual 3D export, reconcile the expected **+31.4 kg** mass change, and reproduce the failure caused by retaining an old BOM or drawing.
 
 Independent educational engineering QA project. Not affiliated with, endorsed by, or integrated with NAPA.
@@ -65,6 +67,8 @@ python -m hullguard validate frontend/public/data/faults/stale_bom/model.json fr
 The final command exits **1**. Read `STALE_REVISION` and the P-01 mass finding. The expected mass is 125.6 kg and the observed stale value is 94.2 kg. Exit **0** indicates pass and **2** indicates invalid input or usage. Add `--against build/baseline` to the comparison command to include an old candidate bundle and exit nonzero for its findings.
 
 ## Architecture and evidence
+
+Verification passed **95 Python tests**, **6 Chromium acceptance tests**, and **98.44% combined line and branch coverage**. GitHub Actions passed on Windows and Linux, with Chromium acceptance on Linux. All six injected faults triggered their expected detectors.
 
 ```mermaid
 flowchart LR

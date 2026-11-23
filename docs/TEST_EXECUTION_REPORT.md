@@ -18,6 +18,14 @@ Executed with Python 3.12.10, pytest 9.0.3, pytest-cov 7.1.0, coverage.py 7.17.5
 
 [Verification summary](../reports/local/verification-summary.json) · [Python JUnit](../reports/local/test-results.xml) · [Cobertura coverage](../reports/local/coverage.xml) · [Browser JUnit](../reports/local/browser-results.xml)
 
+## GitHub Actions and Pages
+
+The first public workflow completed the Ubuntu, Windows, and Pages deployment jobs successfully. The downloaded verification artifacts confirmed 95 Python tests and 98.44% combined coverage on both runners. Ubuntu passed six Chromium tests. Windows CI used the explicit recorded browser skip, and the Windows clean checkout above ran all six separately.
+
+The hosted project path served the static index, JavaScript, validation catalog, eight-object OBJ and the revised engineering report with HTTP 200.
+
+[First publication run](https://github.com/chirayukapoor5/hullguard-qa/actions/runs/45191782400) · [Live demo](https://chirayukapoor5.github.io/hullguard-qa/)
+
 ## Interactive and manual scope
 
 The in-app browser review exercised the component selector, camera controls, plate revision comparison, drawing fault selector, and generated HTML report as an agent-operated exploratory session. The baseline loaded eight mesh objects, S-03 displayed matching properties, and the drawing evidence showed DRAWING_THICKNESS. The revised report linked its artifacts and displayed +31.4 kg. The separate scripted suite captured the desktop, mobile, and fault views.

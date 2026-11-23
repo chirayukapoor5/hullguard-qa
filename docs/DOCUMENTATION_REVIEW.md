@@ -22,4 +22,6 @@ Use the checklist when changing the supported model, a command, an evidence form
 - If a bundle reports STALE_REVISION, compare its source hash with `python -m hullguard check <model>` and regenerate the bundle from the intended source. Check the other findings before assuming regeneration is the whole fix.
 - If a report link is missing, keep all files in a single output directory and regenerate the bundle. The report uses relative evidence links.
 
+The 23 November 2026 review resolved the repository-relative links and verified the 24 manual case statuses, README CLI outcomes, fresh dependency installation, and the deployed Pages asset paths. The stale BOM example returned exit 1 with a mass and source revision mismatch.
+
 [Verification record](TEST_EXECUTION_REPORT.md)
